@@ -41,14 +41,15 @@ const setup = async () => {
    * Register platform
    */
   await lti.registerPlatform({
-    url: 'https://sandbox.moodledemo.net', // or url : 'https://canvas.exampledomain.com' (depends on config form Canvas instance) if iss is changed in config/security.yml file! It must be the same as the iss
-    name: 'Moodle', // domain name from canvas instance
-    clientId: 'rDuj8STfbJwzBAC', // clientid from the lti plugin which you get inside canvas after installing the plugin
-    authenticationEndpoint: 'https://sandbox.moodledemo.net/mod/lti/auth.php',
-    accesstokenEndpoint: 'https://sandbox.moodledemo.net/mod/lti/token.php',
+    url: 'https://canvas.instructure.com', // or url : 'https://canvas.exampledomain.com' (depends on config form Canvas instance) if iss is changed in config/security.yml file! It must be the same as the iss
+    name: 'Canvas', // domain name from canvas instance
+    clientId: '10000000000015', // clientid from the lti plugin which you get inside canvas after installing the plugin
+    authenticationEndpoint:
+      'https://canvas-temp.pagewerkz.com/api/lti/authorize_redirect',
+    accesstokenEndpoint: 'https://canvas-temp.pagewerkz.com/login/oauth2/token',
     authConfig: {
       method: 'JWK_SET',
-      key: 'https://sandbox.moodledemo.net/mod/lti/certs.php'
+      key: 'https://canvas-temp.pagewerkz.com/api/lti/security/jwks'
     }
   })
 
