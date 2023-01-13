@@ -40,30 +40,33 @@ const setup = async () => {
   /**
    * Register platform
    */
-  await lti.registerPlatform({
-    url: 'https://canvas.instructure.com', // or url : 'https://canvas.exampledomain.com' (depends on config form Canvas instance) if iss is changed in config/security.yml file! It must be the same as the iss
-    name: 'Canvas', // domain name from canvas instance
-    clientId: '10000000000015', // clientid from the lti plugin which you get inside canvas after installing the plugin
-    authenticationEndpoint:
-      'https://canvas-temp.pagewerkz.com/api/lti/authorize_redirect',
-    accesstokenEndpoint: 'https://canvas-temp.pagewerkz.com/login/oauth2/token',
-    authConfig: {
-      method: 'JWK_SET',
-      key: 'https://canvas-temp.pagewerkz.com/api/lti/security/jwks'
-    }
-  })
+  // await lti.registerPlatform({
+  //   url: 'https://canvas.instructure.com', // or url : 'https://canvas.exampledomain.com' (depends on config form Canvas instance) if iss is changed in config/security.yml file! It must be the same as the iss
+  //   name: 'Canvas', // domain name from canvas instance
+  //   clientId: '10000000000015', // clientid from the lti plugin which you get inside canvas after installing the plugin
+  //   authenticationEndpoint:
+  //     'https://canvas-temp.pagewerkz.com/api/lti/authorize_redirect',
+  //   accesstokenEndpoint: 'https://canvas-temp.pagewerkz.com/login/oauth2/token',
+  //   authConfig: {
+  //     method: 'JWK_SET',
+  //     key: 'https://canvas-temp.pagewerkz.com/api/lti/security/jwks'
+  //   }
+  // })
 
   // For other plattforms, for example moodle:
 
   // Moodle EXAMPLE
-  // await lti.registerPlatform({
-  //   url: 'http://localhost/moodle',
-  //   name: 'Platform',
-  //   clientId: 'CLIENTID',
-  //   authenticationEndpoint: 'http://localhost/moodle/mod/lti/auth.php',
-  //   accesstokenEndpoint: 'http://localhost/moodle/mod/lti/token.php',
-  //   authConfig: { method: 'JWK_SET', key: 'http://localhost/moodle/mod/lti/certs.php' }
-  // })
+  await lti.registerPlatform({
+    url: 'https://sandbox.moodledemo.net',
+    name: 'Moodle',
+    clientId: 'x0GIpAfkLHGrXyW',
+    authenticationEndpoint: 'https://sandbox.moodledemo.net/mod/lti/auth.php',
+    accesstokenEndpoint: 'https://sandbox.moodledemo.net/mod/lti/token.php',
+    authConfig: {
+      method: 'JWK_SET',
+      key: 'https://sandbox.moodledemo.net/mod/lti/certs.php'
+    }
+  })
 }
 
 setup()
